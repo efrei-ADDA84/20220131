@@ -42,3 +42,35 @@ Etape 5 : Test
 
 J'ai testé mon travail en utilisant la commande suivante docker run --env LAT="31.2504" --env LONG="-99.2506" --env API_KEY=**** kymguzman/mydockerimage qui m'a bien envoyé la météo du lieu dont la latitude et la longitude sont renseignées: The weather in your location is clear sky with a temperature of 28.01°C
 
+
+TP2 DEVOPS - Docker-------------------------------------------------------------------------------------------------------------------------------------------
+Introduction
+
+L'objectif de ce TP était de configurer un workflow Github Action pour transformer un wrapper en API, publier automatiquement l'image sur Docker Hub et mettre l'image à disposition sous forme d'API sur Docker Hub, en mettant à disposition le code dans un repository Github.
+
+Étapes de réalisation
+
+Voici les étapes que j'ai suivies pour réaliser le TP:
+
+Étape 1 : Configuration du workflow Github Action
+
+J'ai commencé par créer un nouveau fichier YAML nommé ci.yml pour configurer le workflow Github Action. Ce fichier définit une action qui construit et pousse l'image Docker sur Docker Hub chaque fois qu'un push est effectué sur la branche principale. J'ai utilisé les actions Docker Hub pour me connecter à mon compte Docker Hub, installer Docker Buildx et construire et pousser l'image Docker efrei-devops-tp2
+
+Étape 2 : Transformation d'un wrapper en API
+
+J'ai ensuite créé une API qui utilise le wrapper pour obtenir les informations météorologiques de l'API OpenWeatherMap. J'ai utilisé le framework FastAPI pour créer cette API, en récupérant les informations de latitude et de longitude en tant que paramètres de requête, et en stockant la clé API dans une variable d'environnement.
+
+Étape 3 : Publication automatique de l'image sur Docker Hub
+
+J'ai configuré le workflow Github Action pour qu'il pousse automatiquement l'image Docker sur Docker Hub chaque fois qu'un push est effectué sur la branche principale.
+
+Étape 4 : Mise à disposition de l'image sur DockerHub
+
+J'ai publié mon image Docker sur Docker Hub pour qu'elle soit accessible au public.
+
+Etape 5 : Test
+
+J'ai ensuite exécuté les commandes suivantes pour tester mon travail :
+
+docker run --network host --env API_KEY=**** kymguzman/efrei-devops-tp2
+curl "http://localhost:8081/?lat=5.902785&lon=102.754175"
