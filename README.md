@@ -54,6 +54,7 @@ Voici les étapes que j'ai suivies pour réaliser le TP:
 
 Étape 1 : Configuration du workflow Github Action
 
+J'ai modifié le Dockerfile du tp1 pour l'adapter au tp2.
 J'ai commencé par créer un nouveau fichier YAML nommé ci.yml pour configurer le workflow Github Action. Ce fichier définit une action qui construit et pousse l'image Docker sur Docker Hub chaque fois qu'un push est effectué sur la branche principale. J'ai utilisé les actions Docker Hub pour me connecter à mon compte Docker Hub, installer Docker Buildx et construire et pousser l'image Docker efrei-devops-tp2
 
 Étape 2 : Transformation d'un wrapper en API
